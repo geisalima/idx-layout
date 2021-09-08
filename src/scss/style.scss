@@ -1,0 +1,379 @@
+$poppins: 'Poppins', sans-serif;
+$pink: #EC008C;
+$gray: #3E4D60;
+$gray-secondary: #8C94A8;
+$mobile: 991px;
+$desk: 992px;
+
+[class*=text-truncate] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+}
+
+.text-truncate-2 {
+    -webkit-line-clamp: 2;
+}
+
+.text-truncate-3 {
+    -webkit-line-clamp: 3;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $poppins;
+    background-color: #F2F2F2; 
+}
+
+a {
+    text-decoration: none;
+}
+
+figure {
+    margin: 0
+}
+
+img {
+    max-width: 100%;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    @media screen and (min-width: $desk) {
+        min-height: calc(100vh - 96px);
+    }
+
+    @media screen and (max-width: $mobile) {
+        height: calc(100vw + 100px);
+        max-height: 420px;
+    }
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        font-size: 14px;
+        color: #fff;
+        font-weight: 500;
+        text-transform: uppercase;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.menu {
+    width: 26.67px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+
+    @media screen and (min-width: $desk) {
+        display: none;
+    }
+}
+
+
+.hamburguer {
+    position: relative;
+    background-color: #fff;
+    display: block;
+    width: 21.33px;
+    height: 4px;
+    top: 8px;
+    left: 0;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.hamburguer:before, .hamburguer:after {
+    background-color: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: 500ms ease;
+    border-radius: 5px;
+}
+
+.hamburguer:before {
+    top: -8px;
+    width: 25.33px;
+}
+
+.hamburguer:after {
+    top: 8px;
+    width: 25.33px;
+}
+
+.navbar-menu.open .hamburguer {
+    background-color: transparent;
+    top: 0;
+}
+
+.navbar-menu.open .hamburguer:after {
+    transform: rotate(45deg);
+}
+
+.navbar-menu.open .hamburguer:before {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 96px;
+
+    ul {
+        @media screen and (max-width: $mobile) {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 0;
+            left: 0;
+            background-color: $pink;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 0;
+            z-index: 9;
+            padding-top: 140px;
+            opacity: 0;
+            overflow-y: hidden;
+            transition: all 500ms ease;
+        }
+    }
+}
+
+li {
+    padding: 10px;
+}
+
+@media screen and (max-width: $mobile) {
+    a {
+        font-size: 20px;
+    }
+    a, .menu {
+        z-index: 99;
+    }
+}
+
+.navbar-menu.open ul {
+  opacity: 1;
+  height: 100vh;
+}
+
+main {
+    .sticky-menu {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: $pink;
+        z-index: 9;
+
+        @media screen and (max-width: $mobile) {
+            display: none;
+        }
+    }
+}
+
+.header-bg {
+    background-image: url('/teste/imgs/header-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+
+    figure {
+        max-width: 550px;
+    }
+
+    img {
+        @media screen and (max-width: $mobile) {
+            max-width: 90px;
+        }
+    }
+
+    figcaption {
+        font-size: 18px;
+    }
+
+    span {
+        color: $pink;
+    }
+}
+
+.trending-list {
+    margin: 23px 0;
+
+    li:not(:last-child) {
+        border-right: 1px solid #d8d8d8;
+        padding-right: 30px;
+        margin-right: 30px;
+    }
+
+    li:first-of-type {
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: $mobile) {
+        display: none;
+    }
+}
+
+.btn {
+    width: 123px;
+    height: 51px;
+    background-color: $pink;
+    border-radius: 5px;
+    border: 0;
+    margin-top: 57px;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (max-width: $mobile) {
+        margin-top: 32px;
+    }
+}
+
+.card {
+    display: flex;
+    padding: 20px 0;
+    margin-bottom: 60px;
+
+    &__title {
+        color: $pink;
+        margin-top: 0;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    &__description {
+        color: $gray;
+    }
+
+    &__img {
+        border: 1px solid #eee;
+        aspect-ratio: 1/1;
+        max-width: 368px;
+        overflow: hidden;
+        border-radius: 10px;
+
+        @media screen and (min-width: $desk) {
+            margin-right: 20px;
+        }
+
+        @media screen and (max-width: $mobile) {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        flex-direction: column;
+    }
+}
+
+.swiper-wrapper {
+    padding: 120px 0;
+
+    a {
+
+        &:hover img {
+            transform: scale(1.2);
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        padding: 24px 0 44px;
+    }
+
+}
+
+.swiper-slide {
+    max-width: 368px;
+    background-color: #fff;
+
+    &__img {
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+        height: 309px;
+
+        @media screen and (max-width: $mobile) {
+            height: 229px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: .3s;
+    }
+
+    &__text {
+        padding: 20px;
+        margin: 0;
+        color: $gray;
+    }
+
+    p {
+        margin-bottom: 0;
+        color: $gray-secondary;
+    }
+
+    strong {
+        font-size: 20px;
+    }
+
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: $pink;
+
+    @media screen and (max-width: $mobile) {
+        display: none;
+    }
+}
+
+.swiper-pagination-bullet-active {
+    background-color: $pink;
+}
+
+.footer {
+    border-top: 1px solid rgb(144 140 140 / 17%);
+    height: 25px;
+    font-size: 14px;
+    color: #908C8C;
+    padding: 15px 0;
+}
